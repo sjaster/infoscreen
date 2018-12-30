@@ -1,0 +1,10 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.is-timecolor {
+    background-color: #00d1b2;
+    color: #000000;
+}

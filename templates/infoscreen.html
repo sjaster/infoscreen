@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Infoscreen 0.1</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}"/>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/time.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/dvb.js') }}"></script>
+</head>
+<body>
+<section class="hero is-fullheight">
+    <div class="tile is-ancestor ">
+        <div class="tile is-4 is-vertical is-parent">
+            <div class="tile is-child notification is-warning">
+                <p class="title">Linie 85 - Mohorner Straße</p><br>
+                <p class="subtitle has-text-centered" id="line85"></p>
+            </div>
+            <div class="tile is-child notification is-warning">
+                <p class="title">Linie 62 - Mohorner Straße</p><br>
+                <p class="subtitle has-text-centered" id="line62"></p>
+            </div>
+        </div>
+        <div class="tile is-4 is-vertical is-parent">
+            <div class="tile is-child notification is-warning">
+                <p class="title">Linie 63 - Würzburger Straße</p><br>
+                <p class="subtitle has-text-centered" id="line63"></p>
+            </div>
+            <div class="tile is-child notification is-warning">
+                <p class="title">Linie 61 - Tharandter Straße</p><br>
+                <p class="subtitle has-text-centered" id="line61"></p>
+            </div>
+        </div>
+        <div class="tile is-4 is-vertical is-parent">
+            <div class="tile is-child notification is-timecolor has-text-centered is-one-fifth">
+                <span class="icon is-large"><i class="fa fa-3x fa-calendar"></i></span>
+                <p class="title" id="date"></p>
+                <p class="subtitle" id="time"></p>
+            </div>
+            <div class="tile is-child notification is-warning">
+                <p class="title">Alle Linien - Tharandter Straße</p><br>
+                <p class="subtitle has-text-centered" id="linetharan"></p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
