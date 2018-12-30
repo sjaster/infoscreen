@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements
 
 EXPOSE 5000
 
-CMD python3 main.py
+CMD ["python", "/app/main.py"]
