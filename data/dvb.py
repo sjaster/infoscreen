@@ -14,7 +14,10 @@ def getDepartures(stop):
         linedata = dict()
         entry = 0
         for elem in r.json():
-            time = int(elem[2])
+            try:
+                time = int(elem[2])
+            except ValueError:
+                time = 0
 
             if time > 1 and time < 45:
                 linedata[entry] = dict()
@@ -36,27 +39,21 @@ def getDirection(stop, linenumber):
     r = requests.get(api, params=params)
     
     if r.status_code == 200:
-        i = 0
-        data = []
-        
-        for elem in r.json():
-            data.append(elem)
-            i += 1
-        
+
         linedata = dict()
         entry = 0
-        for elem in data:
+        for elem in r.json():
             if elem[0] == linenumber:
                 try:
-                    int(elem[2])
+                    time = int(elem[2])
                 except ValueError:
-                    elem[2] = 0
+                    time = 0
                 
-                if int(elem[2]) > 1 and int(elem[2]) < 45:
+                if time > 1 and time < 45:
                     linedata[entry] = dict()
                     linedata[entry]['linenumber'] = elem[0]
                     linedata[entry]['stop'] = elem[1]
-                    linedata[entry]['time'] = elem[2]
+                    linedata[entry]['time'] = time
                     entry += 1
 
             if entry >= 4:
@@ -65,5 +62,3 @@ def getDirection(stop, linenumber):
         return linedata
     else:
         return r.status_code
-
-print(getDirection('Tharandter Straße', '7'))
